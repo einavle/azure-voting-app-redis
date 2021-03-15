@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('verify docker') {
             steps {
-                sh 'docker ps'
+                sh 'echo einavi'
             }
         }
     }
