@@ -20,5 +20,24 @@ pipeline {
                 }
             }
         }
+        stage('parallel'){
+            parallel{
+                stage('Run Trivy'){
+                    steps {
+                        sh(script: """
+                           trivy einavl/jenkins-sample:${env.BUILD_ID}
+                           """)
+                    }
+                    }
+                    stage('echo something'){
+                    steps {
+                        sh(script: """
+                           echo the build number is ${env.BUILD_ID}
+                           """)
+                    }
+
+            }
+        }
+        }
     }
 }
