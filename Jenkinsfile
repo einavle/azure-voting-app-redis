@@ -3,6 +3,7 @@ node('master'){
       sh 'echo hi I am master'
     }
 }
+echo "Not a particular node..."
 node('slave'){
     stage('git'){
         git branch: 'scripted', url: 'https://github.com/einavle/azure-voting-app-redis.git'
