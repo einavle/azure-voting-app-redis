@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('verify docker') {
             steps {
-                sh 'echo docker ps'
+                sh 'docker ps'
             }
         }
         stage('Push Container') {
@@ -14,9 +14,9 @@ pipeline {
                 echo "Workspace is $WORKSPACE"
                 dir("$WORKSPACE/azure-vote") {
                     script {
-                        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                            def customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
-                            //customImage.push()
+                       // docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
+                        //    def customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
+                        //    customImage.push()
                         }
                     }
                 }
