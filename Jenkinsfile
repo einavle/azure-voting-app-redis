@@ -1,10 +1,11 @@
 pipeline {
-    def customImage
+   
     agent  {
         label 'master'
     }
 
     stages {
+         def customImage
         stage('verify docker') {
             steps {
                 sh 'docker ps'
