@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent master
 
     stages {
         stage('verify docker') {
@@ -7,17 +7,18 @@ pipeline {
                 sh 'echo docker ps'
             }
         }
-        stage('Push Container'){
-            steps{
+        stage('Push Container') {
+            steps {
                 echo "Workspace is $WORKSPACE"
-                dir("$WORKSPACE/azure-vote"){
+                dir("$WORKSPACE/azure-vote") {
                     script {
                         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                                def customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
-                                customImage.push()
-                            }
+                            def customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
+                            customImage.push()
+                        }
                     }
                 }
             }
         }
+    }
 }
