@@ -1,4 +1,5 @@
 pipeline {
+    def customImage
     agent  {
         label 'master'
     }
@@ -15,7 +16,7 @@ pipeline {
                 dir("$WORKSPACE/azure-vote") {
                     script {
                         docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-                            def customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
+                            customImage = docker.build("einavl/jenkins-sample:${env.BUILD_ID}")
                             customImage.push()
                         }
                     }
