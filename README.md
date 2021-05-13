@@ -1,5 +1,5 @@
 ---
-A1
+A2
 page_type: sample
 languages:
   - python
