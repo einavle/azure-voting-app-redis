@@ -1,4 +1,4 @@
-//A1
+//A2
 echo "Not a particular node..."
 
 node('master'){
