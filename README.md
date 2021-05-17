@@ -1,4 +1,5 @@
 ---
+A1
 page_type: sample
 languages:
   - python
