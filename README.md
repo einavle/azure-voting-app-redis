@@ -1,5 +1,5 @@
 ---
-A5 tst
+A6 tst
 page_type: sample
 languages:
   - python
